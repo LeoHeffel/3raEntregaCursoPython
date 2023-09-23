@@ -1,0 +1,25 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+<title>Profesores</title>
+{% endblock titulo %}
+
+{% block tittle %}
+
+    <h1>Listado de profesores </h1>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+    <ul class="list-group">
+        {% for profesor in profesores %}
+        <li class="list-group-item list-group-item-info"> {{profesor.nombre}}  {{profesor.apellido}}</li>
+    {% endfor %}
+
+    </ul>
+    
+{% endblock content-left %}
+
+{% block content-right %}
+    <a href="{% url 'profesores:crear' %}">Agregar profesor</a>
+{% endblock content-right %}

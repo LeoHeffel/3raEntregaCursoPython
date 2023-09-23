@@ -1,0 +1,21 @@
+{% extends 'home/index.html' %}
+
+{% block tittle %}
+    <h1>CREAR CURSO </h1>
+{% endblock tittle %}
+
+{% block content-left %}
+    <form action="" method="post">
+        <div class="mb-3">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary" >Guardar</button>
+        </div>
+    </form>
+
+
+{% endblock content-left %}
+
+{% block content-right %}
+
+{% endblock content-right %}
