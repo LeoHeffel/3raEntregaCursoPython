@@ -1,12 +1,12 @@
 {% extends 'home/index.html' %}
 
 {% block titulo %}
-    <title>Estudiantes</title>
+    <title>Profesores</title>
 {% endblock titulo %}
 
 {% block tittle %}
 <div class="container">
-    <h1>Listado de estudiantes </h1>
+    <h1>Listado de profesores </h1>
 </div>
     
 {% endblock tittle %}
@@ -21,9 +21,9 @@
     </div>
 
     <ul class="list-group">
-        {% for estudiante in object_list %}
-        <li class="list-group-item list-group-item-info"> {{estudiante.nombre}}  {{estudiante.apellido}}
-            <a class="float-end" href="{% url 'estudiantes:estudiantes_detail' estudiante.id %}"><button class="btn btn-info">Detalles <i class="bi bi-eye"></i></button></a>
+        {% for profesor in object_list %}
+        <li class="list-group-item list-group-item-info"> {{profesor.nombre}}  {{profesor.apellido}}
+            <a class="float-end" href="{% url 'profesores:profesores_detail' profesor.id %}"><button class="btn btn-info">Detalles <i class="bi bi-eye"></i></button></a>
         </li>
         
       
@@ -35,6 +35,6 @@
   
 {% block content-right %}
 
-    <a href="{% url 'estudiantes:estudiantes_create' %}"><button class="btn btn-success">Agregar <i class="bi bi-file-earmark-plus"></i></button></a>
+    <a href="{% url 'profesores:profesores_create' %}"><button class="btn btn-success">Agregar <i class="bi bi-file-earmark-plus"></i></button></a>
     <div class="p-3" > <a href="{% url 'home:index' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
 {% endblock content-right %}

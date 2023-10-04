@@ -25,7 +25,8 @@
 
     
 {% block content-right %}
-    <a href="{% url 'estudiantes:estudiantes_update' estudiante.id %}">Editar</a>
-    <a href="{% url 'estudiantes:estudiantes_delete' estudiante.id %}">Eliminar</a>
+<a href="{% url 'estudiantes:estudiantes_update' estudiante.id %}"><button class="btn btn-warning">Editar<i class="bi bi-pencil-square"></i></button></a>
+<a href="{% url 'estudiantes:estudiantes_delete' estudiante.id %}"><button class="btn btn-danger">Eliminar<i class="bi bi-trash-fill"></i></button></a>
+<div class="p-3" > <a href="{% url 'estudiantes:estudiantes_list' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
     
 {% endblock content-right %}
