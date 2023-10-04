@@ -1,0 +1,31 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+    <title>Estudiantes</title>
+{% endblock titulo %}
+
+{% block tittle %}
+<div class="container">
+    <h1>Detalles de estudiante </h1>
+</div>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+    <ul class="list-group">
+       
+        <li class="list-group-item list-group-item-info"><strong>Nombre:</strong>  {{object.nombre}} </li>
+        <li class="list-group-item list-group-item-info"> Apellido: {{object.apellido}}  </li>
+        <li class="list-group-item list-group-item-info"> Fecha de Nacimiento: {{object.nacimiento}} </li>
+        
+
+    </ul>
+    
+{% endblock content-left %}
+
+    
+{% block content-right %}
+    <a href="{% url 'estudiantes:estudiantes_update' estudiante.id %}">Editar</a>
+    <a href="{% url 'estudiantes:estudiantes_delete' estudiante.id %}">Eliminar</a>
+    
+{% endblock content-right %}

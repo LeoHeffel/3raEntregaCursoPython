@@ -1,0 +1,36 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+    <title>Estudiantes</title>
+{% endblock titulo %}
+
+{% block tittle %}
+<div class="container">
+    <h1>Listado de estudiantes </h1>
+</div>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+    <div class="py-4 text-center">
+        <form action="" method="GET">
+            <input type="text" name="buscar" placeholder="Buscar" class="form-control"> 
+            <button class="btn btn-primary" type="submit">Buscar</button>
+            <button class="btn btn-primary" >Todos</button>
+        </form>
+    </div>
+
+    <ul class="list-group">
+        {% for estudiante in object_list %}
+        <li class="list-group-item list-group-item-info"> {{estudiante.nombre}}  {{estudiante.apellido}}</li>
+        <a href="{% url 'estudiantes:estudiantes_detail' estudiante.id %}">Detalles</a>
+      
+    {% endfor %}
+
+    </ul>
+    
+{% endblock content-left %}
+  
+{% block content-right %}
+    <a href="{% url 'estudiantes:estudiantes_create' %}">Agregar estudiante</a>
+{% endblock content-right %}
