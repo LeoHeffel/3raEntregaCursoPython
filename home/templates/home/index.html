@@ -27,10 +27,17 @@
             <li><a href="{% url 'cursos:cursos_list' %}" class="nav-link px-2">Cursos</a></li>
             <li><a href="/about" class="nav-link px-2">About</a></li>
           </ul>
-    
+          
+
+           
           <div class="col-md-3 text-end">
-            <button type="button" class="btn btn-outline-primary me-2">Login</button>
-            <button type="button" class="btn btn-primary">Sign-up</button>
+            {% if user.is_authenticated %}
+              <button type="button" class="btn btn-danger"><a href="{% url 'home:logout' %}" class="nav-link px-2">Salir</a></button>
+            {% else %}
+              <button type="button" class="btn btn-outline-primary me-2"><a href="{% url 'home:login' %}" class="nav-link px-2">Login</a></button>
+              <button type="button" class="btn btn-primary"><a href="{% url 'home:register' %}" class="nav-link px-2">Registrarse</a></button>
+            {% endif %}
+           
           </div>
         </header>
       </div>
@@ -39,13 +46,14 @@
     
     <div class="container">
       {% block tittle %}
-       
+      {% if user.is_authenticated %} <h4>Hola {{ user.username }}</h4> {% endif %}
       {% endblock tittle %}
     </div>
 
     <div class="container text-center">
         <div class="row align-items-center">
           <div class="col">
+
             {% block content-left %}
                 <img src="{% static 'home/assets/background.jpg' %}" class="img-fluid rounded float-start" alt="">
             {% endblock content-left %}
