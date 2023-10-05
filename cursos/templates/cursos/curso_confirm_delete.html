@@ -1,0 +1,28 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+    <title>Cursos</title>
+{% endblock titulo %}
+
+{% block tittle %}
+<div class="container">
+    <h1>Eliminar curso </h1>
+</div>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+  <p> esta seguro que desea eliminar {{object.curso}} {{object.camada}}?</p>
+  <form action="" method="post">
+    <div class="mb-3">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-danger" >Eliminar</button>
+    </div>
+</form>
+{% endblock content-left %}
+
+    
+{% block content-right %}
+    <a href="{% url 'cursos:cursos_list' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a>
+{% endblock content-right %}
