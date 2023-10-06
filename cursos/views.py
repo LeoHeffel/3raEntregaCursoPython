@@ -16,7 +16,7 @@ class CursosList(ListView):
         if self.request.GET.get("buscar"):
             consulta = self.request.GET.get("buscar")
             object_list = models.Curso.objects.filter(
-                nombre__icontains=consulta
+                curso__icontains=consulta
             )
         return object_list
 
