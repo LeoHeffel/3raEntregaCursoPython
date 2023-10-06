@@ -1,17 +1,22 @@
 {% extends 'home/index.html' %}
+{% load static %}
 {% block titulo %}
 <title>About</title>
 {% endblock titulo %}
 {% block tittle %}
-    <h1>Sitio en construccion </h1>
+    <h1>Acerca de mí</h1>
 {% endblock tittle %}
 
 {% block content-left %}
 <div class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Sitio en construccion...</span>
-  </div>
+</div>
+<img src="{% static 'home/assets/leo.jpg' %}" class="img-fluid rounded-circle float-start" alt="">
+<p>Mi nombre es <strong>Leonardo Heffel</strong>, Fullstack Developer en proceso de creacion de mi primer sitio web con <strong>Django</strong> </p>
+<p>Pueden saber mas acerca de mi y de mis proyectos en  <a href="https://www.linkedin.com/in/leonardo-heffel/">LinkedIn</a></p>
 {% endblock content-left %}
 
 {% block content-right %}
-
+  <div class="p-3" > <a href="{% url 'home:index' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
+    
 {% endblock content-right %}
