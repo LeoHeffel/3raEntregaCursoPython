@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView , DeleteView
@@ -22,16 +23,19 @@ class EstudiantesList(ListView):
 class EstudiantesDetail(DetailView):
     model = models.Estudiante
 
-class EstudiantesCreate(CreateView):
+class EstudiantesCreate(LoginRequiredMixin,CreateView):
+    login_url = 'home:login'
     model = models.Estudiante
     form_class = forms.EstudianteForm
     success_url=reverse_lazy("estudiantes:estudiantes_list")
 
-class EstudiantesUpdate(UpdateView):
+class EstudiantesUpdate(LoginRequiredMixin,UpdateView):
+    login_url = 'home:login'
     model = models.Estudiante
     form_class = forms.EstudianteForm
     success_url=reverse_lazy("estudiantes:estudiantes_list")
 
-class EstudiantesDelete(DeleteView):
+class EstudiantesDelete(LoginRequiredMixin,DeleteView):
+    login_url = 'home:login'
     model = models.Estudiante
     success_url=reverse_lazy("estudiantes:estudiantes_list")
