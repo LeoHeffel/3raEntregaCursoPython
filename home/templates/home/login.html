@@ -1,0 +1,23 @@
+{% extends 'home/index.html' %}
+{% block titulo %}
+<title>About</title>
+{% endblock titulo %}
+{% block tittle %}
+    <h1>Login </h1>
+{% endblock tittle %}
+
+{% block content-left %}
+<form action="" method="post">
+  <div class="mb-3">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit" class="btn btn-primary" >Iniciar Sesion</button>
+  </div>
+</form>
+{% endblock content-left %}
+
+{% block content-right %}
+<a href="{% url 'home:register' %}"><button class="btn btn-primary">Deseas Registrarte</button></a>
+<div class="p-3" > <a href="{% url 'home:index' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
+    
+{% endblock content-right %}

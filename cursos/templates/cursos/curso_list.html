@@ -1,0 +1,40 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+    <title>Cursos</title>
+{% endblock titulo %}
+
+{% block tittle %}
+<div class="container">
+    <h1>Listado de Cursos </h1>
+</div>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+    <div class="py-4 text-center">
+        <form action="" method="GET">
+            <input type="text" name="buscar" placeholder="Buscar" class="form-control"> 
+            <button class="btn btn-primary m-2" type="submit">Buscar</button>
+            <button class="btn btn-primary m-2" >Todos</button>
+        </form>
+    </div>
+
+    <ul class="list-group">
+        {% for curso in object_list %}
+        <li class="list-group-item list-group-item-info"> {{curso.curso}}  {{curso.camada}}
+            <a class="float-end" href="{% url 'cursos:cursos_detail' curso.id %}"><button class="btn btn-info">Detalles <i class="bi bi-eye"></i></button></a>
+        </li>
+        
+      
+    {% endfor %}
+
+    </ul>
+    
+{% endblock content-left %}
+  
+{% block content-right %}
+
+    <a href="{% url 'cursos:cursos_create' %}"><button class="btn btn-success">Agregar <i class="bi bi-file-earmark-plus"></i></button></a>
+    <div class="p-3" > <a href="{% url 'home:index' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
+{% endblock content-right %}

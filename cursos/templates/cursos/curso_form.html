@@ -1,7 +1,7 @@
 {% extends 'home/index.html' %}
 
 {% block tittle %}
-    <h1>CREAR CURSO </h1>
+    <h1>Crear Curso </h1>
 {% endblock tittle %}
 
 {% block content-left %}
@@ -17,5 +17,5 @@
 {% endblock content-left %}
 
 {% block content-right %}
-
+<div class="p-3" > <a href="{% url 'cursos:cursos_list' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
 {% endblock content-right %}

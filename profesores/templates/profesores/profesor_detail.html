@@ -1,0 +1,32 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+    <title>Estudiantes</title>
+{% endblock titulo %}
+
+{% block tittle %}
+<div class="container">
+    <h1>Detalles de profesor </h1>
+</div>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+    <ul class="list-group">
+       
+        <li class="list-group-item list-group-item-info"><strong>Nombre:</strong>  {{object.nombre}} </li>
+        <li class="list-group-item list-group-item-info"> Apellido: {{object.apellido}}  </li>
+        <li class="list-group-item list-group-item-info"> Email: {{object.email}} </li>
+        
+
+    </ul>
+    
+{% endblock content-left %}
+
+    
+{% block content-right %}
+<a href="{% url 'profesores:profesores_update' profesor.id %}"><button class="btn btn-warning">Editar<i class="bi bi-pencil-square"></i></button></a>
+<a href="{% url 'profesores:profesores_delete' profesor.id %}"><button class="btn btn-danger">Eliminar<i class="bi bi-trash-fill"></i></button></a>
+<div class="p-3" > <a href="{% url 'profesores:profesores_list' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
+    
+{% endblock content-right %}

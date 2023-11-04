@@ -1,0 +1,30 @@
+{% extends 'home/index.html' %}
+
+{% block titulo %}
+    <title>Cursos</title>
+{% endblock titulo %}
+
+{% block tittle %}
+<div class="container">
+    <h1>Detalles de curso </h1>
+</div>
+    
+{% endblock tittle %}
+
+{% block content-left %}
+    <ul class="list-group">
+       
+        <li class="list-group-item list-group-item-info"><strong>Curso:</strong>  {{object.curso}} </li>
+        <li class="list-group-item list-group-item-info"> Camada: {{object.camada}}  </li>
+      
+    </ul>
+    
+{% endblock content-left %}
+
+    
+{% block content-right %}
+<a href="{% url 'cursos:cursos_update' curso.id %}"><button class="btn btn-warning">Editar<i class="bi bi-pencil-square"></i></button></a>
+<a href="{% url 'cursos:cursos_delete' curso.id %}"><button class="btn btn-danger">Eliminar<i class="bi bi-trash-fill"></i></button></a>
+<div class="p-3" > <a href="{% url 'cursos:cursos_list' %}"><button class="btn btn-secondary">Volver <i class="bi bi-arrow-left-square-fill"></i></button></a></div>
+    
+{% endblock content-right %}
